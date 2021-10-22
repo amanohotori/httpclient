@@ -15,5 +15,9 @@ namespace WebAPIClient
     public Uri Homepage { get; set; }
     [JsonPropertyName("watchers")]
     public int Watchers { get; set; }
+    [JsonPropertyName("pushed_at")]
+    public DateTime LastPushUtc { get; set; }
+    public DateTime LastPush => LastPushUtc.ToLocalTime();
+    // LastPush は LastPushUtc の .ToLocalTime() メソッドで出力されたものにするという式
   }
 }
